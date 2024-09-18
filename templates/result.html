@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Alphabet-wise Personality Prediction
+{% endblock %}
+
+{% block content %}
+<!-- RESULT DISPLAY -->
+<!-- <div class="h-[500px] p-4 flex-grow flex flex-col items-center justify-center">
+  <h1 class="text-3xl font-bold mb-4">Personality Report</h1>
+  <div class="text-xl text-center bg-pink-100 rounded-md p-4">
+    <div>
+      <p class="mb-2">What 'A' says about your personality?</p>
+      <p class="mb-6">Emotions when one talks about home (not house), stress levels, comfort zone</p>
+    </div>
+    <div>Personality Type: <span>{{ category }}</span></div>
+    <div class="text-justify">Associated Traits: <span>{{ traits }}</span></div>
+  </div>
+  <div class="m-5">
+    <a href="{{ url_for('index') }}" class="bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-700">Back to
+      Home</a>
+  </div>
+</div> -->
+
+<div class="p-4 flex-grow flex flex-col items-center justify-center">
+  <h1 class="text-3xl font-bold mb-4">Alphabet-Wise Personality Analysis Output: Emotional Stability and Expression
+    (Letters: A, E, I, O, S)</h1>
+  <div class="text-xl bg-pink-100 rounded-md p-4" id="analysisContent">
+    <div>
+      <p class="font-bold mb-2">Emotions When Discussing Home (Not House) (Letter 'A'):</p>
+      <p>Your 'a' formation indicates a round and wide shape, suggesting an ideal emotional response when discussing
+        home. Your feelings are balanced, and you experience a sense of comfort and satisfaction in your home
+        environment. Your approach to home-related matters reflects contentment and ease.</p>
+
+      <p class="font-bold mb-2">Ability to Deal with People or Situations (Letter 'E'):</p>
+      <p>The 'e' formation frequently occurring in the English language reveals your ability to deal with people and
+        situations. If your 'e' formation is of Type 1, indicating a perfect loop, you can express your emotions and
+        thoughts appropriately. This suggests that you are capable of navigating social interactions with ease and
+        clarity.</p>
+
+      <p class="font-bold mb-2">Deals with Ability to Take or Give, Relationship with Plans & Goals (Letter 'I'):</p>
+      <p>The 'i' formation reflects your ability to take or give, as well as your relationship with plans and goals.
+        Depending on the type of 'i' you form, you may exhibit traits such as creativity, emotional sensitivity, or a
+        focus on short-term or long-term goals. Your 'i' formation provides insights into your mindset and aspirations.
+      </p>
+
+      <p class="font-bold mb-2">Feeling of Satisfaction (Letter 'O'):</p>
+      <p>Your 'o' formation suggests your feeling of satisfaction. If your 'o' formation is ideal, you are satisfied
+        with your current circumstances. However, if it is open or has a loop towards the left, you may experience
+        complications or overthinking before or after activities. Your 'o' formation provides clues about your level of
+        contentment and ease.</p>
+
+      <p class="font-bold mb-2">Manifestation (Letter 'S'):</p>
+      <p>Your 's' formation deals with manifestation. If your 's' formation is ideal, you are patient and enjoy whatever
+        you have received. However, if it is angular or thin, you may question or be impatient about receiving things.
+        Your 's' formation reflects your attitude towards the outcomes and manifestations in your life.</p>
+    </div>
+  </div>
+</div>
+
+<div class="p-4 flex-grow flex flex-col items-center justify-center">
+  <h1 class="text-3xl font-bold mb-4">Alphabet-Wise Personality Analysis Output: Self-Reliance and Determination
+    (Letters: B, H, K, R, T)</h1>
+  <div class="text-xl bg-pink-100 rounded-md p-4">
+    <div>
+      <p class="font-bold mb-2">Self-Reliance and Sustenance (Letter 'B'):</p>
+      <p>Your 'b' formation indicates a perfect loop with no additional strokes, suggesting a state of relaxation and
+        self-satisfaction in your approach to life. You tend to be content with your achievements and possess a strong
+        sense of self-reliance and sustenance. Satisfaction comes naturally to you, reflecting a balanced and harmonious
+        outlook on life.</p>
+
+      <p class="font-bold mb-2">Willingness to Share Knowledge (Letter 'H'):</p>
+      <p>The formation of your 'h' displays a perfect V-shape without any additional strokes, indicating a practical and
+        shrewd approach coupled with inventiveness. You are willing to share your knowledge and experiences, especially
+        in a structured and systematic manner. Your practicality shines through, allowing you to impart wisdom
+        effectively.</p>
+
+      <p class="font-bold mb-2">Ability to Convey Ideas (Letter 'K'):</p>
+      <p>Your 'k' formation features an angle sticking to the stem, suggesting clear communication and understanding by
+        others of your creative thoughts. You possess an innate ability to convey ideas with conviction and influence.
+        Your clarity of expression and persuasive nature make you a compelling communicator.</p>
+
+      <p class="font-bold mb-2">Conversion of Boring Work (Letter 'R'):</p>
+      <p>The cursive loops in your 'r' formation indicate a creative approach, with wider loops suggesting a higher
+        degree of creativity. You excel at transforming mundane tasks into engaging endeavors, infusing innovation and
+        excitement into your work. Your creativity knows no bounds, driving you to explore new horizons and push
+        boundaries.</p>
+
+      <p class="font-bold mb-2">Goal Orientation (Letter 'T'):</p>
+      <p>Your 't' formation features a stem that is shorter than 'h', reflecting an ideal temperament for students and
+        those venturing into new endeavors. You possess a learning-capable attitude, eager to absorb knowledge and
+        experience. Your goal orientation is practical and grounded, focusing on achievable objectives and steady
+        progress.</p>
+    </div>
+  </div>
+</div>
+
+<div class="p-4 flex-grow flex flex-col items-center justify-center">
+  <h1 class="text-3xl font-bold mb-4">Alphabet-Wise Personality Analysis Output: Social Interaction and Adaptability
+    (Letters: C, J, L, U, Y)</h1>
+  <div class="text-xl bg-pink-100 rounded-md p-4">
+    <div>
+      <p class="font-bold mb-2">Social Environment and Engagement (Letter 'C'):</p>
+      <p>Your 'c' formation indicates how you deal with the outside world and social environments. If your 'c' formation
+        is ideal, you enjoy social interactions and engage actively with your surroundings. However, if it is squeezed,
+        thin, or has extra strokes, you may feel uncomfortable or avoid going out. Your 'c' formation reflects your
+        social disposition and adaptability.</p>
+
+      <p class="font-bold mb-2">Consideration for Others (Letter 'J'):</p>
+      <p>The 'j' formation is associated with daily activities and self-perspectives. If your 'j' formation lacks a
+        lower curve, you may exhibit selfish tendencies. However, if it includes a downward loop, you show consideration
+        for others and have a desire to reciprocate. Your 'j' formation reflects your attitude towards others and your
+        level of selflessness.</p>
+
+      <p class="font-bold mb-2">Time Taken to Convert Thoughts into Action (Letter 'L'):</p>
+      <p>Your 'l' formation represents the time taken to convert thoughts into action. If your 'l' formation is looped,
+        you are creative and readily available to act upon your thoughts. However, if it is simple or includes unwanted
+        strokes, you may experience less creativity and unnecessary complexities. Your 'l' formation reveals your
+        approach to decision-making and action.</p>
+
+      <p class="font-bold mb-2">Experiences and Learning Capabilities (Letter 'U'):</p>
+      <p>The 'u' formation reflects your experiences and learning capabilities. Depending on the type of 'u' you form,
+        you may exhibit practicality, analytical skills, or confusion. A simple 'u' suggests practical knowledge, while
+        additional features like angles or loops may indicate analytical abilities or confusion in learning. Your 'u'
+        formation provides insights into your approach to new experiences and learning.</p>
+
+      <p class="font-bold mb-2">Attitudes Towards Money and Spending Habits (Letter 'Y'):</p>
+      <p>Your 'y' formation indicates your attitudes towards money and spending habits. If your 'y' formation lacks a
+        loop, you may be careless about how money or energy is spent, potentially leading to frustration. However, if it
+        includes a loop, you may prefer to spend in a flow and engage in multiple expenditures or social activities.
+        Your 'y' formation reflects your approach to financial management and lifestyle choices.</p>
+    </div>
+  </div>
+</div>
+
+<div class="p-4 flex-grow flex flex-col items-center justify-center">
+  <h1 class="text-3xl font-bold mb-4">Alphabet-Wise Personality Analysis Output: Social Interaction and Adaptability
+    (Letters: C, J, L, U, Y)</h1>
+  <div class="text-xl bg-pink-100 rounded-md p-4">
+    <div>
+      <p class="font-bold mb-2">Social Environment and Engagement (Letter 'C'):</p>
+      <p>Your 'c' formation indicates how you deal with the outside world and social environments. If your 'c' formation
+        is ideal, you enjoy social interactions and engage actively with your surroundings. However, if it is squeezed,
+        thin, or has extra strokes, you may feel uncomfortable or avoid going out. Your 'c' formation reflects your
+        social disposition and adaptability.</p>
+
+      <p class="font-bold mb-2">Consideration for Others (Letter 'J'):</p>
+      <p>The 'j' formation is associated with daily activities and self-perspectives. If your 'j' formation lacks a
+        lower curve, you may exhibit selfish tendencies. However, if it includes a downward loop, you show consideration
+        for others and have a desire to reciprocate. Your 'j' formation reflects your attitude towards others and your
+        level of selflessness.</p>
+
+      <p class="font-bold mb-2">Time Taken to Convert Thoughts into Action (Letter 'L'):</p>
+      <p>Your 'l' formation represents the time taken to convert thoughts into action. If your 'l' formation is looped,
+        you are creative and readily available to act upon your thoughts. However, if it is simple or includes unwanted
+        strokes, you may experience less creativity and unnecessary complexities. Your 'l' formation reveals your
+        approach to decision-making and action.</p>
+
+      <p class="font-bold mb-2">Experiences and Learning Capabilities (Letter 'U'):</p>
+      <p>The 'u' formation reflects your experiences and learning capabilities. Depending on the type of 'u' you form,
+        you may exhibit practicality, analytical skills, or confusion. A simple 'u' suggests practical knowledge, while
+        additional features like angles or loops may indicate analytical abilities or confusion in learning. Your 'u'
+        formation provides insights into your approach to new experiences and learning.</p>
+
+      <p class="font-bold mb-2">Attitudes Towards Money and Spending Habits (Letter 'Y'):</p>
+      <p>Your 'y' formation indicates your attitudes towards money and spending habits. If your 'y' formation lacks a
+        loop, you may be careless about how money or energy is spent, potentially leading to frustration. However, if it
+        includes a loop, you may prefer to spend in a flow and engage in multiple expenditures or social activities.
+        Your 'y' formation reflects your approach to financial management and lifestyle choices.</p>
+    </div>
+  </div>
+</div>
+
+<div class="p-4 flex-grow flex flex-col items-center justify-center">
+  <h1 class="text-3xl font-bold mb-4">Alphabet-Wise Personality Analysis Output: Creativity and Innovation
+    (Letters: D, F, M, N, V, W, X)</h1>
+  <div class="text-xl bg-pink-100 rounded-md p-4">
+    <div>
+      <p class="font-bold mb-2">Imagination and Originality (Letter 'D'):</p>
+      <p>Your 'd' formation reflects your imagination and originality. If your 'd' has a strong, clear loop, you likely
+        possess a vivid imagination and enjoy exploring creative ideas. However, if your 'd' lacks a loop or is
+        disconnected, you may struggle with generating original thoughts. Your 'd' formation provides insights into your
+        creative potential and innovative thinking.</p>
+
+      <p class="font-bold mb-2">Flexibility and Adaptability (Letter 'F'):</p>
+      <p>The 'f' formation indicates your flexibility and adaptability. If your 'f' is fluid and smoothly written, you
+        are likely open to new ideas and able to adapt to changing circumstances. However, if your 'f' is rigid or
+        disjointed, you may find it challenging to adjust to new situations. Your 'f' formation reflects your ability to
+        innovate and embrace change.</p>
+
+      <p class="font-bold mb-2">Expression of Ideas (Letter 'M'):</p>
+      <p>Your 'm' formation reveals how effectively you express your ideas. If your 'm' is well-formed and balanced, you
+        are likely skilled at articulating your thoughts and conveying complex concepts. However, if your 'm' is
+        inconsistent or poorly structured, you may struggle to communicate your ideas clearly. Your 'm' formation
+        reflects your ability to innovate and share your creative vision.</p>
+
+      <p class="font-bold mb-2">Exploration and Curiosity (Letter 'N'):</p>
+      <p>The 'n' formation reflects your curiosity and inclination towards exploration. If your 'n' is open and
+        expansive, you likely possess a strong sense of curiosity and enjoy seeking out new experiences. However, if
+        your 'n' is closed or tightly formed, you may be more cautious and hesitant to explore unfamiliar territories.
+        Your 'n' formation provides insights into your creative curiosity and thirst for discovery.</p>
+
+      <p class="font-bold mb-2">Visionary Thinking (Letters 'V', 'W', 'X'):</p>
+      <p>The formations of 'v', 'w', and 'x' indicate your capacity for visionary thinking and innovative ideas. If your
+        'v', 'w', and 'x' formations are bold and distinctive, you likely possess a visionary mindset and enjoy pushing
+        the boundaries of conventional thinking. However, if your 'v', 'w', and 'x' formations are timid or lack
+        clarity, you may struggle to envision new possibilities. Your 'v', 'w', and 'x' formations reveal your potential
+        for creativity and innovation.</p>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="m-5">
+      <a href="{{ url_for('index') }}" class="bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-700">Back to
+        Home</a>
+    </div>
+    <div class="m-5">
+      <a href="{{ url_for('index') }}" id="downloadBtn" class="bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-700">Download
+        Report</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

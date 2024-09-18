@@ -1,0 +1,96 @@
+{% extends 'base.html'%}
+
+{% block title %}
+Full Personality Prediction
+{% endblock %}
+
+{% block content%}
+<div class="p-4 flex-grow flex flex-col items-center justify-center">
+    <h1 class="text-3xl font-bold mb-4">Personality Report</h1>
+    <!-- <div class="flex gap-[28px]">
+        <div class="w-1/2 text-xl bg-pink-100 rounded-md p-4">
+            <div class="row">
+                <div class="col">
+                    <h5 class="text-center">Handwriting Features</h5>
+                    <hr>
+                    <p>
+                        {% for key, values in predictions["features"].items() %}
+                    <p><strong>{{key}}</strong>: {{ values}}</p>
+                    {% endfor %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="w-1/2 text-xl bg-pink-100 rounded-md p-4">
+            <div class="row">
+                <div class="col">
+                    <h5 class="text-center">Personality Features</h5>
+                    <hr>
+                    <p>
+                        {% for key, values in predictions["traits"].items() %}
+                    <p><strong>{{key}}</strong>: {{ values}}</p>
+                    {% endfor %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="flex gap-[28px]">
+        <div class="w-1/2 text-xl bg-pink-100 rounded-md p-4">
+            <div class="row">
+                <div class="col">
+                    <h5 class="text-center">Handwriting Features</h5>
+                    <hr>
+                    <b>Baseline Angle</b>: Descending - Your baseline slants downward as you write. This can be
+                    associated with
+                    a more introspective nature and a tendency to overthink at times.
+                    <hr>
+                    <b>Top Margin</b>: Medium or Bigger - Leaving a larger space at the top of the page might indicate a
+                    need
+                    for organization and a preference for a clear beginning.
+                    <hr>
+                    <b>Letter Size</b>: Small - Smaller letter size can suggest a desire for privacy,
+                    detail-orientedness, or a
+                    reserved personality.
+                    <br>
+                    <b>Line Spacing</b>: Medium - Medium line spacing suggests a balance between organization and
+                    allowing room
+                    for thought while writing.
+                    <br>
+                    <b>Word Spacing</b>: Big - Wider spacing between words might indicate a preference for independence,
+                    a need
+                    for personal space, or a more analytical thinking style.
+                    <br>
+                    <b>Slant Angle</b>: A Little or Moderately Reclined - A slight backward slant can be associated with
+                    a
+                    relaxed and introspective approach.
+                </div>
+            </div>
+        </div>
+        <div class="w-1/2 text-xl bg-pink-100 rounded-md p-4">
+            <div class="col">
+                <h5 class="text-center">Personality Traits</h5>
+                <hr>
+                <b>Modesty</b>: The analysis suggests you might possess a sense of modesty and are perhaps not inclined
+                to boast or draw excessive attention to yourself.
+                a more introspective nature and a tendency to overthink at times.
+                <hr>
+                <b>Emotional Stability</b>: The report indicates "Absent" for emotional stability. It's important to
+                note that handwriting analysis is a complex tool, and a single feature might not capture the full
+                picture. Consider this as a starting point for reflection. Are there situations where you experience
+                emotional fluctuations? Exploring self-awareness practices might be beneficial.
+                <hr>
+                <b>Social Isolation</b>: The analysis suggests a potential for social isolation. This doesn't
+                necessarily mean you are lonely, but it might indicate a preference for spending time alone. Do you find
+                a healthy balance between socializing and enjoying solitude?
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="m-5">
+        <a href="{{ url_for('index') }}" class="bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-700">Back to
+            Home</a>
+    </div>
+</div>
+
+{% endblock %}
